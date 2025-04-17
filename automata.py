@@ -20,7 +20,7 @@ def gen_randomize_grid(size, prob_alive):
     return np.random.choice([0, 1], size=size, p=[1 - prob_alive, prob_alive]).astype(np.uint8)
 
 def draw_cells(grid, surf):
-    rgb_grid = np.stack([grid * 255] * 3, axis=-1)
+    rgb_grid = np.stack([grid * 200] * 3, axis=-1)
     surface = pg.surfarray.make_surface(rgb_grid)
     surface = pg.transform.scale(surface, WINDOW_SIZE)
 
