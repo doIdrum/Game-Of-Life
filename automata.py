@@ -3,7 +3,11 @@ import pygame as pg
 
 import sys
 
-WINDOW_SIZE = (1920, 1080)
+
+pg.init()
+
+info = pg.display.Info()
+WINDOW_SIZE = (info.current_w, info.current_h) 
 RES = 1
 ROWS, COLS = WINDOW_SIZE[0] // RES, WINDOW_SIZE[1] // RES
 
@@ -11,8 +15,7 @@ shifts = [(1, 0), (1, 1), (1, -1), (0, 1),
           (0, -1), (-1, 1), (-1, -1), (-1, 0)]
 
 def init():
-    pg.init()
-    win = pg.display.set_mode(WINDOW_SIZE)
+    win = pg.display.set_mode(WINDOW_SIZE, pg.FULLSCREEN)
     clock = pg.time.Clock()
     return win, clock
 
